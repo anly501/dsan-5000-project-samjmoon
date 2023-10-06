@@ -3,14 +3,36 @@ project:
 
 website:
   title: "DSAN-5000: Project"
-  navbar:
-    left:
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
       - href: index.qmd
         text: Home
+      - href: about/about.ipynb
+        text: About
+      - href: data/data.ipynb
+        text: Data
+      - href: code/code.ipynb
+        text: Code
+      - href: introduction/introduction.ipynb
+        text: Introduction
       - href: clustering/clustering.qmd
         text: Clustering
       - href: eda/eda.ipynb
         text: Data Exploration
+      - href: data-gathering/data-gathering.ipynb
+        text: Data Gathering
+      - href: data-cleaning/data-cleaning.ipynb
+        text: Data Cleaning
+      - href: dim-reduction/dim-reduction.ipynb
+        text: Dimensionality Reduction
+      - href: decision-trees/decision-trees.ipynb
+        text: Decision Trees
+      - href: ARM/arm.ipynb
+        text: ARM
+      - href: conclusion/conclusion.ipynb
+        text: Conclusions
 format:
   html:
     theme: cosmo

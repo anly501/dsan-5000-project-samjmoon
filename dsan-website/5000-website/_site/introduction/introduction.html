@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Data Exploration</title>
+<title>DSAN-5000: Project - Ethical Fashion: Is it Profitable?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -106,7 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../eda/eda.html">Data Exploration</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../introduction/introduction.html">Introduction</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -157,13 +142,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../introduction/introduction.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../clustering/clustering.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Clustering</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../eda/eda.html" class="sidebar-item-text sidebar-link active">
+  <a href="../eda/eda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Exploration</span></a>
   </div>
 </li>
@@ -187,7 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../decision-trees" class="sidebar-item-text sidebar-link">
+  <a href="../decision-trees/decision-trees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Decision Trees</span></a>
   </div>
 </li>
@@ -209,21 +200,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#quick-look-at-the-data" id="toc-quick-look-at-the-data" class="nav-link active" data-scroll-target="#quick-look-at-the-data">Quick look at the data</a></li>
-  <li><a href="#basic-visualization" id="toc-basic-visualization" class="nav-link" data-scroll-target="#basic-visualization">Basic visualization</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Exploration</h1>
+<h1 class="title">Ethical Fashion: Is it Profitable?</h1>
 </div>
 
 
@@ -238,59 +222,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Build out your website tab for exploratory data analysis</p>
-<section id="quick-look-at-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="quick-look-at-the-data">Quick look at the data</h2>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import seaborn</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the default theme</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>, palette<span class="op">=</span><span class="st">"pastel"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load an example dataset</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>tips <span class="op">=</span> sns.load_dataset(<span class="st">"tips"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tips)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     total_bill   tip     sex smoker   day    time  size
-0         16.99  1.01  Female     No   Sun  Dinner     2
-1         10.34  1.66    Male     No   Sun  Dinner     3
-2         21.01  3.50    Male     No   Sun  Dinner     3
-3         23.68  3.31    Male     No   Sun  Dinner     2
-4         24.59  3.61  Female     No   Sun  Dinner     4
-..          ...   ...     ...    ...   ...     ...   ...
-239       29.03  5.92    Male     No   Sat  Dinner     3
-240       27.18  2.00  Female    Yes   Sat  Dinner     2
-241       22.67  2.00    Male    Yes   Sat  Dinner     2
-242       17.82  1.75    Male     No   Sat  Dinner     2
-243       18.78  3.00  Female     No  Thur  Dinner     2
-
-[244 rows x 7 columns]</code></pre>
-</div>
-</div>
-</section>
-<section id="basic-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="basic-visualization">Basic visualization</h2>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a visualization</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sns.relplot(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>tips,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"total_bill"</span>, y<span class="op">=</span><span class="st">"tip"</span>, col<span class="op">=</span><span class="st">"time"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"smoker"</span>, style<span class="op">=</span><span class="st">"smoker"</span>, size<span class="op">=</span><span class="st">"size"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="eda_files/figure-html/cell-3-output-1.svg" class="img-fluid"></p>
-</div>
-</div>
+<p>My topic for research explores the profitability of ethical fashion and how this subset of the fashion industry is growing. Now more than ever, people are discussing environemental concerns in many areas of society. I want to explore how the implementationo of sustainability as well as socially ethical practices are developing in fashion and consumer response. The discourse on “fast fashion” has been trending over social media platforms, primarily in regards to the unsafe labor practices by large fast fashion brands. This discussion has shaped consumer sentiment towards fast fashion companies, and turned many heads toward more sustainable brands. I aim to study how and if ethical fashion brands have displayed high profitability and if this this sustainable route will be followed by businesses in the future.</p>
+<p><strong>10 Questions for Answering:</strong> <br> 1. How has consumer purchase data evolved over recent years in relation to ethical fashion? <br> 2. How have ethical fashion brands grown with rising support for sustainability in the consumer base? <br> 3. How profitable are ethical fashion lines in comparison to their “fast fashion” competitors?<br> 4. Is ethical fashion merely a trend?<br> 5. How important is sustainability to the consumer base when it comes to decision-making?<br> 6. What type of products are particularly successful within the ethical fashion dimension (if any)?<br> 7. How has social media impacted the profitability of ethical fashion brands?<br> 8. What are social media users’ sentiment towards ethical fashion and how has that influenced purchase metrics?<br> 9. How profitable is ethical fashion in the present?<br> 10. What data will influence businesses to take on sustainable roles in the future?<br></p>
+<p><strong>Publication 1: “The impact of ethical fashion on consumer purchase behavior”</strong> <br></p>
+<p>This article explores how consumers have become more conscious of the materials used in clothing and are pushing for transparency and ethics in the fashion supply chain. From apparel manufacturers releasing harmful chemicals into the air to sweatshop labor conditions, the topic of “ethical fashion” has risen as companies are striving to be more environmentally and socially responsible.</p>
+<p>Consumer values and concerns regarding ethical matters and how they play a significant role in the rise of ethical fashion is explored in two areas. This publication focuses on both socially responsible businesses (SRB), which deals with issues like sweatshop labor, and environmentally responsible businesses (ERB), focused on eco-friendly practices. The highlights of this research encompass examining consumers’ viewpoints on ethical fashion and analyzing consumer purchasing behavior impacted by ethical fashion. (see <span class="citation" data-cites="shen2012impact">Shen et al. (<a href="#ref-shen2012impact" role="doc-biblioref">2012</a>)</span>)</p>
+<p><strong>Publication 2: Sustainable fashion index model and its implication</strong> <br></p>
+<p>This study explores key questions regarding how consumers perceive sustainability in the fashion industry and how these perceptions affect various businesses. It addresses whether embracing sustainability can give companies a competitive edge and lead to increased profitability. The publication uses the American Customer Satisfaction Index (ACSI) as a foundation for research. The ACSI captures an overall assessment of customer satisfaction on the basis of various foundations including sustainability.</p>
+<p>This study revolves around identifying the variables that influence sustainable practices of fashion companies by creating metrics for assessing sustainability in the fashion sector. (see <span class="citation" data-cites="wang2019sustainable">Wang et al. (<a href="#ref-wang2019sustainable" role="doc-biblioref">2019</a>)</span>)</p>
 
 
-</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-shen2012impact" class="csl-entry" role="listitem">
+Shen, Bin, Yulan Wang, Chris KY Lo, and Momoko Shum. 2012. <span>“The Impact of Ethical Fashion on Consumer Purchase Behavior.”</span> <em>Journal of Fashion Marketing and Management: An International Journal</em> 16 (2): 234–45.
+</div>
+<div id="ref-wang2019sustainable" class="csl-entry" role="listitem">
+Wang, Huanzhang, Honglei Liu, Sang Jin Kim, and Kyung Hoon Kim. 2019. <span>“Sustainable Fashion Index Model and Its Implication.”</span> <em>Journal of Business Research</em> 99: 430–37.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
