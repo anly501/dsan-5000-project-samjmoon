@@ -11,9 +11,9 @@ website:
         text: Home
       - href: about/about.ipynb
         text: About
-      - href: data/data.ipynb
+      - href: data/example.csv
         text: Data
-      - href: code/code.ipynb
+      - href: codes/API_gathering.py
         text: Code
       - href: introduction/introduction.ipynb
         text: Introduction
