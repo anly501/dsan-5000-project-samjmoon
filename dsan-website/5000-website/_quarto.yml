@@ -13,7 +13,7 @@ website:
         text: About
       - href: data/example.csv
         text: Data
-      - href: codes/API_gathering.py
+      - href: codes/code.qmd
         text: Code
       - href: introduction/introduction.ipynb
         text: Introduction
