@@ -17,7 +17,7 @@ website:
         text: Code
       - href: introduction/introduction.ipynb
         text: Introduction
-      - href: clustering/clustering.qmd
+      - href: clustering/clustering.ipynb
         text: Clustering
       - href: eda/eda.ipynb
         text: Data Exploration
@@ -31,6 +31,13 @@ website:
         text: Decision Trees
       - href: ARM/arm.ipynb
         text: ARM
+      - href: naive-bayes/nb.ipynb
+        text: Naive Bayes
+        contents:
+          - href: naive-bayes/fs-record.ipynb
+            text: Feature Selection for Record Data
+          - href: naive-bayes/fs-text.ipynb
+            text: Feature Selection for Text Data
       - href: conclusion/conclusion.ipynb
         text: Conclusions
 format:
