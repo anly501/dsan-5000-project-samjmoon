@@ -7,11 +7,9 @@ website:
     style: "docked"
     search: true
     contents:
-      - href: index.qmd
-        text: Home
       - href: about/about.ipynb
         text: About
-      - href: data/example.csv
+      - href: data/data.ipynb
         text: Data
       - href: codes/code.qmd
         text: Code

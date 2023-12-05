@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -59,6 +93,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -82,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -99,19 +136,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../about/about.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../data/example.csv" class="sidebar-item-text sidebar-link">
+  <a href="../data/data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
   </div>
 </li>
@@ -204,14 +235,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#user-movie-ratings-dataset" id="toc-user-movie-ratings-dataset" class="nav-link active" data-scroll-target="#user-movie-ratings-dataset">User Movie Ratings Dataset</a></li>
+  <li><a href="#movie-metadata-dataset" id="toc-movie-metadata-dataset" class="nav-link" data-scroll-target="#movie-metadata-dataset">Movie Metadata Dataset</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Cleaning</h1>
+<div class="quarto-title-block"><div><h1 class="title">Data Cleaning</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
 </div>
 
 
@@ -226,16 +264,243 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-Here is a sample of the cleaned SHIRTS data set for women:
+<p>Data cleaning is pertinent to analyzing the datasets at hand. For this task, we will clean the data acquired from GroupLens and Kaggle to remove unnecessary and noisy features with the objective of condensing the information for further analysis.</p>
+<section id="user-movie-ratings-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="user-movie-ratings-dataset">User Movie Ratings Dataset</h2>
+<div class="cell" data-execution_count="1">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to the directory where your file is located</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'/Users/samanthamoon/Desktop/DSAN 5000/dsan-5000-project-samjmoon/dsan-website/5000-website/data-cleaning'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>movies_df <span class="op">=</span> pd.read_csv(<span class="st">'movies.csv'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ratings_df <span class="op">=</span> pd.read_csv(<span class="st">'ratings.csv'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(movies_df.head())</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ratings_df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   movieId                               title  \
+0        1                    Toy Story (1995)   
+1        2                      Jumanji (1995)   
+2        3             Grumpier Old Men (1995)   
+3        4            Waiting to Exhale (1995)   
+4        5  Father of the Bride Part II (1995)   
+
+                                        genres  
+0  Adventure|Animation|Children|Comedy|Fantasy  
+1                   Adventure|Children|Fantasy  
+2                               Comedy|Romance  
+3                         Comedy|Drama|Romance  
+4                                       Comedy  
+   userId  movieId  rating  timestamp
+0       1        1     4.0  964982703
+1       1        3     4.0  964981247
+2       1        6     4.0  964982224
+3       1       47     5.0  964983815
+4       1       50     5.0  964982931</code></pre>
+</div>
+</div>
+<p><br> We started with two datasets, one containing movie data (movieId, title, genres), and another containing ratings data (userId, movieId, rating, timestamp). I merged these two datasets together and computed the average rating per movie in a new column (avg_rating). For EDA purposes, I melted the genres column so that each row includes no more than one genre tag. <br></p>
 <p align="left">
-<img src="sample_cleaned_zara.png" alt="Cleaned Shirts Data" width="1000">
+<img src="melted_genre.png" alt="cleaned" width="600">
 </p>
-<p><a href="../data-cleaning/cleaned_shirts_w.csv.zip">Link to full cleaned data set</a></p>
-<p>To clean this data set, I dropped the “X”, “Link”, and “Product_Image” columns since these columns are not relevant to my analysis. The Price column from the original data set was in Rupees currency, so I converted this column to USD. <br> <a href="../data-cleaning/zara_cleaner.R">View code here</a> <br></p>
-<p>I can use this code for the other Zara data sets, as they contain relatively similar data.</p>
-<p><a href="../data-gathering/cleanedfastfashion.csv.zip">Link to cleaned News API data set</a></p>
+<p>I condensed this dataframe further by removing columns genres, userId, and rating. I will use this in further analysis to combine with the metadata set.</p>
+<p align="left">
+<img src="avg_rating.png" alt="cleaned" width="550">
+</p>
+<p><br></p>
+<p><a href="../data-cleaning/movie_ratings_nb_cleaned.zip">Download the cleaned data set here</a></p>
+</section>
+<section id="movie-metadata-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="movie-metadata-dataset">Movie Metadata Dataset</h2>
+<div class="cell" data-execution_count="4">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ast <span class="im">import</span> literal_eval</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'/Users/samanthamoon/Desktop/DSAN 5000/dsan-5000-project-samjmoon/dsan-website/5000-website/data-cleaning'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>metadata_df <span class="op">=</span> pd.read_csv(<span class="st">'movies_metadata.csv'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>metadata_df[<span class="st">'genres'</span>] <span class="op">=</span> metadata_df[<span class="st">'genres'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [genre[<span class="st">'name'</span>] <span class="cf">for</span> genre <span class="kw">in</span> literal_eval(x)] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> [])</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>metadata_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/mm/79b3ggcn52x9kcrnqfx5mtk40000gn/T/ipykernel_11888/974123927.py:6: DtypeWarning: Columns (10) have mixed types. Specify dtype option on import or set low_memory=False.
+  metadata_df = pd.read_csv('movies_metadata.csv')</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
 
 
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">adult</th>
+<th data-quarto-table-cell-role="th">belongs_to_collection</th>
+<th data-quarto-table-cell-role="th">budget</th>
+<th data-quarto-table-cell-role="th">genres</th>
+<th data-quarto-table-cell-role="th">homepage</th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">imdb_id</th>
+<th data-quarto-table-cell-role="th">original_language</th>
+<th data-quarto-table-cell-role="th">original_title</th>
+<th data-quarto-table-cell-role="th">overview</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">release_date</th>
+<th data-quarto-table-cell-role="th">revenue</th>
+<th data-quarto-table-cell-role="th">runtime</th>
+<th data-quarto-table-cell-role="th">spoken_languages</th>
+<th data-quarto-table-cell-role="th">status</th>
+<th data-quarto-table-cell-role="th">tagline</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">video</th>
+<th data-quarto-table-cell-role="th">vote_average</th>
+<th data-quarto-table-cell-role="th">vote_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>False</td>
+<td>{'id': 10194, 'name': 'Toy Story Collection', ...</td>
+<td>30000000</td>
+<td>[Animation, Comedy, Family]</td>
+<td>http://toystory.disney.com/toy-story</td>
+<td>862</td>
+<td>tt0114709</td>
+<td>en</td>
+<td>Toy Story</td>
+<td>Led by Woody, Andy's toys live happily in his ...</td>
+<td>...</td>
+<td>1995-10-30</td>
+<td>373554033.0</td>
+<td>81.0</td>
+<td>[{'iso_639_1': 'en', 'name': 'English'}]</td>
+<td>Released</td>
+<td>NaN</td>
+<td>Toy Story</td>
+<td>False</td>
+<td>7.7</td>
+<td>5415.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>False</td>
+<td>NaN</td>
+<td>65000000</td>
+<td>[Adventure, Fantasy, Family]</td>
+<td>NaN</td>
+<td>8844</td>
+<td>tt0113497</td>
+<td>en</td>
+<td>Jumanji</td>
+<td>When siblings Judy and Peter discover an encha...</td>
+<td>...</td>
+<td>1995-12-15</td>
+<td>262797249.0</td>
+<td>104.0</td>
+<td>[{'iso_639_1': 'en', 'name': 'English'}, {'iso...</td>
+<td>Released</td>
+<td>Roll the dice and unleash the excitement!</td>
+<td>Jumanji</td>
+<td>False</td>
+<td>6.9</td>
+<td>2413.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>False</td>
+<td>{'id': 119050, 'name': 'Grumpy Old Men Collect...</td>
+<td>0</td>
+<td>[Romance, Comedy]</td>
+<td>NaN</td>
+<td>15602</td>
+<td>tt0113228</td>
+<td>en</td>
+<td>Grumpier Old Men</td>
+<td>A family wedding reignites the ancient feud be...</td>
+<td>...</td>
+<td>1995-12-22</td>
+<td>0.0</td>
+<td>101.0</td>
+<td>[{'iso_639_1': 'en', 'name': 'English'}]</td>
+<td>Released</td>
+<td>Still Yelling. Still Fighting. Still Ready for...</td>
+<td>Grumpier Old Men</td>
+<td>False</td>
+<td>6.5</td>
+<td>92.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>False</td>
+<td>NaN</td>
+<td>16000000</td>
+<td>[Comedy, Drama, Romance]</td>
+<td>NaN</td>
+<td>31357</td>
+<td>tt0114885</td>
+<td>en</td>
+<td>Waiting to Exhale</td>
+<td>Cheated on, mistreated and stepped on, the wom...</td>
+<td>...</td>
+<td>1995-12-22</td>
+<td>81452156.0</td>
+<td>127.0</td>
+<td>[{'iso_639_1': 'en', 'name': 'English'}]</td>
+<td>Released</td>
+<td>Friends are the people who let you be yourself...</td>
+<td>Waiting to Exhale</td>
+<td>False</td>
+<td>6.1</td>
+<td>34.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>False</td>
+<td>{'id': 96871, 'name': 'Father of the Bride Col...</td>
+<td>0</td>
+<td>[Comedy]</td>
+<td>NaN</td>
+<td>11862</td>
+<td>tt0113041</td>
+<td>en</td>
+<td>Father of the Bride Part II</td>
+<td>Just when George Banks has recovered from his ...</td>
+<td>...</td>
+<td>1995-02-10</td>
+<td>76578911.0</td>
+<td>106.0</td>
+<td>[{'iso_639_1': 'en', 'name': 'English'}]</td>
+<td>Released</td>
+<td>Just When His World Is Back To Normal... He's ...</td>
+<td>Father of the Bride Part II</td>
+<td>False</td>
+<td>5.7</td>
+<td>173.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 24 columns</p>
+</div>
+</div>
+</div>
+<br> This dataset contains 24 columns, so we want to reduce it and get rid of unnecessary information. I deleted irrelevent columns and ensured that no NaN values remained. Here is a look at the cleaned dataframe: <br> <br>
+<p align="left">
+<img src="metadata.png" alt="cleaned" width="1000">
+</p>
+<p>We will use this cleaned dataset in combination with the cleaned average rating dataset for later analysis.</p>
+<p><a href="../data-gathering/cleaned_metadata_movies.zip">Download cleaned data set here</a></p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -317,6 +582,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,

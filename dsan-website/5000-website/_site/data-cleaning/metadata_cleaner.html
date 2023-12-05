@@ -138,19 +138,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../about/about.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../data/example.csv" class="sidebar-item-text sidebar-link">
+  <a href="../data/data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
   </div>
 </li>
@@ -250,23 +244,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ast <span class="im">import</span> literal_eval</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to the directory where your file is located</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'/Users/samanthamoon/Desktop/DSAN 5000/dsan-5000-project-samjmoon/dsan-website/5000-website/data-cleaning'</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>metadata_df <span class="op">=</span> pd.read_csv(<span class="st">'movies_metadata.csv'</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>metadata_df[<span class="st">'genres'</span>] <span class="op">=</span> metadata_df[<span class="st">'genres'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [genre[<span class="st">'name'</span>] <span class="cf">for</span> genre <span class="kw">in</span> literal_eval(x)] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> [])</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>metadata_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'/Users/samanthamoon/Desktop/DSAN 5000/dsan-5000-project-samjmoon/dsan-website/5000-website/data-cleaning'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>metadata_df <span class="op">=</span> pd.read_csv(<span class="st">'movies_metadata.csv'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>metadata_df[<span class="st">'genres'</span>] <span class="op">=</span> metadata_df[<span class="st">'genres'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [genre[<span class="st">'name'</span>] <span class="cf">for</span> genre <span class="kw">in</span> literal_eval(x)] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> [])</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>metadata_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/mm/79b3ggcn52x9kcrnqfx5mtk40000gn/T/ipykernel_56220/3656494889.py:9: DtypeWarning: Columns (10) have mixed types. Specify dtype option on import or set low_memory=False.
+<pre><code>/var/folders/mm/79b3ggcn52x9kcrnqfx5mtk40000gn/T/ipykernel_3332/897346492.py:7: DtypeWarning: Columns (10) have mixed types. Specify dtype option on import or set low_memory=False.
   metadata_df = pd.read_csv('movies_metadata.csv')</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
 
@@ -425,7 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>num_columns <span class="op">=</span> metadata_df.shape[<span class="dv">1</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>num_columns</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> metadata_df.columns.tolist()</span>
@@ -435,21 +427,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>Column names: ['adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count']</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>45466</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>columns_to_drop <span class="op">=</span> [<span class="st">'adult'</span>,<span class="st">'belongs_to_collection'</span>,<span class="st">'homepage'</span>, <span class="st">'overview'</span>, <span class="st">'poster_path'</span>, <span class="st">'tagline'</span>, <span class="st">'video'</span>, <span class="st">'status'</span>, <span class="st">'production_countries'</span>, <span class="st">'original_language'</span>, <span class="st">'spoken_languages'</span>, <span class="st">'production_companies'</span>]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>metadata_df <span class="op">=</span> metadata_df.drop(columns<span class="op">=</span>columns_to_drop, axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>metadata_df.head()</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>metadata_df <span class="op">=</span> metadata_df.rename(columns<span class="op">=</span>{<span class="st">'id'</span>: <span class="st">'tmdbId'</span>})</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>metadata_df[<span class="st">'tmdbId'</span>] <span class="op">=</span> pd.to_numeric(metadata_df[<span class="st">'tmdbId'</span>], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>metadata_df[<span class="st">'tmdbId'</span>] <span class="op">=</span> metadata_df[<span class="st">'tmdbId'</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if any column in the DataFrame contains NaN values</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Check if any column in the DataFrame contains NaN values</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>any_nan_values <span class="op">=</span> metadata_df.isna().<span class="bu">any</span>()</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Display which columns have NaN values</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Display which columns have NaN values</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(any_nan_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>budget            False
@@ -467,14 +459,15 @@ vote_count         True
 dtype: bool</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>metadata_df <span class="op">=</span> metadata_df.dropna(subset<span class="op">=</span>[<span class="st">'tmdbId'</span>, <span class="st">'imdb_id'</span>, <span class="st">'vote_average'</span>, <span class="st">'vote_count'</span>, <span class="st">'runtime'</span>])</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> metadata_df.shape[<span class="dv">0</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>num_rows</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>any_nan_values <span class="op">=</span> metadata_df.isna().<span class="bu">any</span>()</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Display which columns have NaN values</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(any_nan_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(any_nan_values)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>metadata_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>budget            False
 genres            False
@@ -490,8 +483,111 @@ vote_average      False
 vote_count        False
 dtype: bool</code></pre>
 </div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">budget</th>
+<th data-quarto-table-cell-role="th">genres</th>
+<th data-quarto-table-cell-role="th">tmdbId</th>
+<th data-quarto-table-cell-role="th">imdb_id</th>
+<th data-quarto-table-cell-role="th">original_title</th>
+<th data-quarto-table-cell-role="th">popularity</th>
+<th data-quarto-table-cell-role="th">release_date</th>
+<th data-quarto-table-cell-role="th">revenue</th>
+<th data-quarto-table-cell-role="th">runtime</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">vote_average</th>
+<th data-quarto-table-cell-role="th">vote_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>30000000</td>
+<td>[Animation, Comedy, Family]</td>
+<td>862.0</td>
+<td>tt0114709</td>
+<td>Toy Story</td>
+<td>21.946943</td>
+<td>1995-10-30</td>
+<td>373554033.0</td>
+<td>81.0</td>
+<td>Toy Story</td>
+<td>7.7</td>
+<td>5415.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>65000000</td>
+<td>[Adventure, Fantasy, Family]</td>
+<td>8844.0</td>
+<td>tt0113497</td>
+<td>Jumanji</td>
+<td>17.015539</td>
+<td>1995-12-15</td>
+<td>262797249.0</td>
+<td>104.0</td>
+<td>Jumanji</td>
+<td>6.9</td>
+<td>2413.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0</td>
+<td>[Romance, Comedy]</td>
+<td>15602.0</td>
+<td>tt0113228</td>
+<td>Grumpier Old Men</td>
+<td>11.7129</td>
+<td>1995-12-22</td>
+<td>0.0</td>
+<td>101.0</td>
+<td>Grumpier Old Men</td>
+<td>6.5</td>
+<td>92.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>16000000</td>
+<td>[Comedy, Drama, Romance]</td>
+<td>31357.0</td>
+<td>tt0114885</td>
+<td>Waiting to Exhale</td>
+<td>3.859495</td>
+<td>1995-12-22</td>
+<td>81452156.0</td>
+<td>127.0</td>
+<td>Waiting to Exhale</td>
+<td>6.1</td>
+<td>34.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0</td>
+<td>[Comedy]</td>
+<td>11862.0</td>
+<td>tt0113041</td>
+<td>Father of the Bride Part II</td>
+<td>8.387519</td>
+<td>1995-02-10</td>
+<td>76578911.0</td>
+<td>106.0</td>
+<td>Father of the Bride Part II</td>
+<td>5.7</td>
+<td>173.0</td>
+</tr>
+</tbody>
+</table>
+
 </div>
-<div class="cell" data-execution_count="8">
+</div>
+</div>
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'./cleaned_metadata_movies.csv'</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>metadata_df.to_csv(file_path, index<span class="op">=</span><span class="va">False</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
