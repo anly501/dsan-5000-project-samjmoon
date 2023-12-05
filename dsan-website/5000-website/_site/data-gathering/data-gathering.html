@@ -99,19 +99,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../about/about.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../data/example.csv" class="sidebar-item-text sidebar-link">
+  <a href="../data/data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
   </div>
 </li>
@@ -204,7 +198,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#grouplens" id="toc-grouplens" class="nav-link active" data-scroll-target="#grouplens">GroupLens</a></li>
+  <li><a href="#kaggle" id="toc-kaggle" class="nav-link" data-scroll-target="#kaggle">Kaggle</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -226,15 +227,19 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>I gathered my data using News API and Kaggle data sets.</p>
-From Kaggle, I pulled the “Zara Dataset - Men and Women Clothing” data sets which is a pretty comprehensive set of data summarizing the Zara inventory for men and women. <br> Here is a sample from the SHIRTS data set for women:
-<p align="left">
-<img src="zara_sample.png" alt="Me" width="1000">
-</p>
-<p><a href="../data-gathering/zara.zip">Download full Zara data set here</a></p>
-<p>I also used the News API to gather data on news titles related to the topic “fast fashion”. <a href="../data-gathering/news_api.html">Access code here</a></p>
+<p>The primary sources of data collection were MovieLens through GroupLens and Kaggle. GroupLens is a research organization from the University of Minnesota, Twin Cities and has collected a plethora of data from the MovieLens website. MovieLens is a movie recommendation website that users can employ to find personalized movie recommendations. Kaggle is a common destination for public datasets, as was used to obtain additional MovieLens data.</p>
+<section id="grouplens" class="level2">
+<h2 class="anchored" data-anchor-id="grouplens">GroupLens</h2>
+<p>Individual user rating data was acquired through the MovieLens latest small dataset from GroupLens. This dataset contains 100,000 ratings across 600 users and 9,000 films.</p>
+<p><a href="../data-gathering/ml-latest-small.zip">Download MovieLens data set here</a></p>
+</section>
+<section id="kaggle" class="level2">
+<h2 class="anchored" data-anchor-id="kaggle">Kaggle</h2>
+<p>Movie metadata was obtained through “The Movies Dataset” on Kaggle. This dataset contains 45,000 films released on or before July 2017.</p>
+<p>Link to dataset: https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
